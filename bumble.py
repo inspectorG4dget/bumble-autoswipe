@@ -1,16 +1,13 @@
+import os
+import random
 import time
 
-import os
-
+from selenium import webdriver
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 import data
-
-from selenium import webdriver
-
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-
 import decision
 
 
@@ -38,6 +35,7 @@ def main():
             answer = Keys.ARROW_LEFT
 
         actions = ActionChains(br)
+        time.sleep(random.uniform(0,2))
         actions.send_keys(answer)
         actions.perform()
 
