@@ -1,0 +1,72 @@
+cannabisv2:
+  never: None
+  almost never: None
+  rarely: None
+  socially: None
+  frequently: None
+
+drinkingv2:
+  never: None
+  almost never: None
+  rarely: None
+  socially: None
+  frequently: None
+
+educationv2:
+  trade/tech school: None
+  in college: None
+  undergraduate degree: None
+  in grad school: None
+  graduate degree: None
+  high school: None
+
+exercisev2:
+  sometimes: None
+  active: None
+  almost never: None
+  never: None
+
+familyPlansv2:
+  have and don�t want more: None
+  open to kids: None
+  want someday: None
+  don�t want: None
+  not sure yet: None
+  have and want more: None
+  have kids: None
+
+genderv2:
+  woman: None
+  woman and nonbinary: None
+  cis woman: None
+
+intentionsv2:
+  relationship: None
+  don�t know yet: None
+  something casual: None
+  marriage: None
+
+Politicsv2:
+  liberal: None
+  moderate: None
+  apolitical: None
+  conservative: None
+
+religionv2:
+  agnostic: None
+  christian: None
+  catholic: None
+  hindu: None
+  muslim: None
+  other: None
+  spiritual: None
+  atheist: None
+  buddhist: None
+
+smokingv2:
+  never: None
+  almost never: None
+  rarely: None
+  socially: None
+  frequently: None
+  regularly: None
