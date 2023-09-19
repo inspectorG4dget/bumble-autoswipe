@@ -1,3 +1,5 @@
+import json
+import logging
 import os
 import random
 import time
@@ -20,12 +22,14 @@ def main():
 
     while True:
 
-        if br.find_elements(By.CLASS_NAME, "cta-box__title")[0].text == "You’ve hit the end of the line — for today!":
+        if len(br.find_elements(By.CLASS_NAME, "cta-box__title")) > 0:
             print('Out of swipes for today')  ##
             break
 
-        attrs = data.extractData(br)
+        attrs, rawData = data.extractData(br)
         answer = decision.getSwipeDir(attrs)
+
+        logging.info(f"{json.dumps(rawData)} | {answer}")
 
         print(answer)
 

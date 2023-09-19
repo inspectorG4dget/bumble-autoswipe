@@ -9,7 +9,7 @@ class MirrorDict(dict):
     def __getitem__(self, item):
         return item
 
-logging.basicConfig(filename='DataFiles/bumble.log')
+logging.basicConfig(filename=os.path.join('DataFiles', 'bumble.log'), level=logging.INFO)
 attrMap = {'heightv2': MirrorDict()}
 
 with open(os.path.join("DataFiles", 'config.yaml')) as infile:
@@ -23,12 +23,14 @@ def extractData(br):
 
     attrDivs = br.find_elements(By.CLASS_NAME, "pill__image")
 
+    rawData = {}
     attrs = {}
     for attr, div in zip(attrDivs, divs):
         br.execute_script("arguments[0].scrollIntoView();", div)
         src = os.path.basename(attr.get_attribute('src'))
         src = src.rsplit('.', 1)[0].rsplit("_", 1)[-1]
         val = div.text.lower()
+        rawData[src] = val
 
         if src in attrMap:
             try:
@@ -46,9 +48,4 @@ def extractData(br):
 
         attrs['heightv2'] = height
 
-    return attrs
-
-if __name__ == "__main__":
-    print('starting')
-    print(sorted(attrMap.keys()))
-    print('done')
+    return attrs, rawData

@@ -39,6 +39,10 @@ rule['works'] = fuzz.trapmf(universe, (0,0, myHeight, tooTall))
 rule['tooTall'] = fuzz.trapmf(universe, (0,myHeight, tooTall, 78))
 ```
 
+### Units
+
+I'm writing this code in Canada and the height is reported in feet and inches. The height might be reported differently (likely in centimeters) in other parts of the world. If you run into this, please create an issue and I'll try to address it.
+
 ## Missing Categories
 
 The current `config.yaml` contains all the sections and categories that I have discovered since I started developing this. I'm sure I've missed a few. Those are logged at runtime in `DataFiles/bumble.log`. Feel free to take a look in here and update the config file to taste.
