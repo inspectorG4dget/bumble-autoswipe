@@ -1,72 +1,78 @@
 cannabisv2:
-  never: None
-  almost never: None
-  rarely: None
-  socially: None
-  frequently: None
+  almost never: null
+  frequently: null
+  never: null
+  rarely: null
+  socially: null
 
 drinkingv2:
-  never: None
-  almost never: None
-  rarely: None
-  socially: None
-  frequently: None
+  almost never: null
+  frequently: null
+  never: null
+  rarely: null
+  socially: null
 
 educationv2:
-  trade/tech school: None
-  in college: None
-  undergraduate degree: None
-  in grad school: None
-  graduate degree: None
-  high school: None
+  graduate degree: null
+  high school: null
+  in college: null
+  in grad school: null
+  trade/tech school: null
+  undergraduate degree: null
 
 exercisev2:
-  sometimes: None
-  active: None
-  almost never: None
-  never: None
+  active: null
+  almost never: null
+  never: null
+  sometimes: null
 
 familyPlansv2:
-  have and don�t want more: None
-  open to kids: None
-  want someday: None
-  don�t want: None
-  not sure yet: None
-  have and want more: None
-  have kids: None
+  "don�t want": null
+  "have and don�t want more": null
+  have and want more: null
+  have kids: null
+  not sure yet: null
+  open to kids: null
+  want someday: null
 
 genderv2:
-  woman: None
-  woman and nonbinary: None
-  cis woman: None
+  cis woman: null
+  woman: null
+  woman and nonbinary: null
+
+heightv2:
+  bufferMax: null
+  max: null
+  min: null
 
 intentionsv2:
-  relationship: None
-  don�t know yet: None
-  something casual: None
-  marriage: None
+  "don�t know yet": null
+  marriage: null
+  relationship: null
+  something casual: null
 
 Politicsv2:
-  liberal: None
-  moderate: None
-  apolitical: None
-  conservative: None
+  apolitical: null
+  conservative: null
+  liberal: null
+  moderate: null
 
 religionv2:
-  agnostic: None
-  christian: None
-  catholic: None
-  hindu: None
-  muslim: None
-  other: None
-  spiritual: None
-  atheist: None
-  buddhist: None
+  agnostic: null
+  atheist: null
+  buddhist: null
+  catholic: null
+  christian: null
+  hindu: null
+  jewish: null
+  muslim: null
+  other: null
+  spiritual: null
 
 smokingv2:
-  never: None
-  almost never: None
-  rarely: None
-  socially: None
-  frequently: None
-  regularly: None
+  almost never: null
+  frequently: null
+  never: null
+  rarely: null
+  regularly: null
+  socially: null
