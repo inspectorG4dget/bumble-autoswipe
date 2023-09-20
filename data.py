@@ -29,6 +29,9 @@ def loadConfig(infilepath):
     dealmakers = prefs.pop('dealmakers', {})
     dealbreakers = prefs.pop('dealbreakers', {})
 
+    if dealmakers is None: dealmakers = {}
+    if dealbreakers is None: dealbreakers = {}
+
     return prefs, dealmakers, dealbreakers
 
 
