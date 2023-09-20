@@ -14,6 +14,10 @@ import decision
 
 
 def main():
+    """
+    The main function that runs everything
+    :return:
+    """
     prefs = data.loadConfig(os.path.join('DataFiles', 'bumble.log'))
     rules = decision.getRules(prefs)
     br = webdriver.Firefox()
@@ -32,8 +36,6 @@ def main():
         answer = decision.getSwipeDir(attrs, rules)
 
         logging.info(f"{json.dumps(rawData)} | {answer}")
-
-        print(answer)
 
         if answer >= 0:
             answer = Keys.ARROW_RIGHT

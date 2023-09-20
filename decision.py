@@ -7,9 +7,11 @@ import skfuzzy.control as ctrl
 
 def getRules(prefs):
     """
-
-    :param prefs:
-    :return:
+    Generate all fuzzy rules based on othe user's preferences
+    :param prefs: {trait: {category: input value for fuzzy system, ...}, ...}
+        This has the same structure as the config file
+    :return: {trait: [rule, rule, ...], ...}
+        all fuzzy rules key'd by traits in the preference
     """
     universe = np.linspace(-1, 1, 50)
     swipe = ctrl.Consequent(universe, 'swipedir')
@@ -54,10 +56,15 @@ def getRules(prefs):
 
 def getSwipeDir(attributes, RULES):
     """
-
-    :param attributes:
-    :param RULES:
-    :return:
+    Create a fuzzy system and get the output, based on the input data available.
+    Filter `RULES` by the available data. The filtered rules go into the fuzzy system
+    :param attributes: {trait: value, ...}
+        captured from Bumb;es interface
+    :param RULES: {trait: [rule, rule, ...], ...}
+        The set of all rules created from the preferences in config.yaml
+    :return: float. The output of the fuzzy system.
+        Values under 0 are swipe left
+        Values >= 0 are swipe right
     """
     rules = []
     for a in attributes:
