@@ -18,8 +18,10 @@ def loadConfig(infilepath):
     """
     Load the config file
     :param infilepath: str. The filepath of the config file.
-    :return: {trait: {category: value, ...}, ...}. TODO
-        The loaded config
+    :return: (config, dealmakers, dealbreakers)
+        config = {trait: {category: value, ...}, ...}
+        dealmakers = {trait: minValue, ...}
+        dealbreakers = {trait: maxValue, ...}
     """
     logging.basicConfig(filename=infilepath, level=logging.INFO)
 
