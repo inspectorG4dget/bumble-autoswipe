@@ -30,14 +30,11 @@ Irrelevant sections (i.e. character traits that the user may not care about) can
 
 ## Height
 
-Height is the only trait not captured in the config file. This is captured instead in `decision.py` in the following lines (fiddle to taste):
+Height is the only non-categorical trait in the config file. So it has a couple of parameters that need to be fiddled to taste:
 
-```python
-myHeight = None
-tooTall = None
-rule['works'] = fuzz.trapmf(universe, (0,0, myHeight, tooTall))
-rule['tooTall'] = fuzz.trapmf(universe, (0,myHeight, tooTall, 78))
-```
+1. `min` is the height under which the match is too short
+2. `max` is the height above which the match is too tall, but can be compromised
+3. `bufferMax` is the height above which the match is too tall, and cannot be compromised
 
 ### Units
 

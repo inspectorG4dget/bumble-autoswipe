@@ -14,6 +14,12 @@ import decision
 
 
 def main():
+    """
+    The main function that runs everything
+    :return:
+    """
+    prefs = data.loadConfig(os.path.join('DataFiles', 'bumble.log'))
+    rules = decision.getRules(prefs)
     br = webdriver.Firefox()
 
     br.get("https://bumble.com/app")
@@ -26,12 +32,10 @@ def main():
             print('Out of swipes for today')  ##
             break
 
-        attrs, rawData = data.extractData(br)
-        answer = decision.getSwipeDir(attrs)
+        attrs, rawData = data.extractData(br, prefs)
+        answer = decision.getSwipeDir(attrs, rules)
 
         logging.info(f"{json.dumps(rawData)} | {answer}")
-
-        print(answer)
 
         if answer >= 0:
             answer = Keys.ARROW_RIGHT
