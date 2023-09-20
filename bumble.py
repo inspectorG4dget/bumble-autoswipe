@@ -18,7 +18,7 @@ def main():
     The main function that runs everything
     :return:
     """
-    prefs = data.loadConfig(os.path.join('DataFiles', 'bumble.log'))
+    prefs, dealmakers, dealbreakers = data.loadConfig(os.path.join('DataFiles', 'bumble.log'))
     rules = decision.getRules(prefs)
     br = webdriver.Firefox()
 
@@ -33,7 +33,7 @@ def main():
             break
 
         attrs, rawData = data.extractData(br, prefs)
-        answer = decision.getSwipeDir(attrs, rules)
+        answer = decision.getSwipeDir(attrs, rules, dealbreakers, dealmakers)
 
         logging.info(f"{json.dumps(rawData)} | {answer}")
 
