@@ -14,18 +14,22 @@ class MirrorDict(dict):
         return item
 
 
-def  loadConfig(infilepath):
+def loadConfig(infilepath):
     """
     Load the config file
     :param infilepath: str. The filepath of the config file.
-    :return: {trait: {category: value, ...}, ...}. The loaded config
+    :return: {trait: {category: value, ...}, ...}. TODO
+        The loaded config
     """
     logging.basicConfig(filename=infilepath, level=logging.INFO)
 
     with open(os.path.join("DataFiles", 'config.yaml')) as infile:
         prefs = yaml.load(infile.read(), Loader=yaml.Loader)
 
-    return prefs
+    dealmakers = prefs.pop('dealmakers', {})
+    dealbreakers = prefs.pop('dealbreakers', {})
+
+    return prefs, dealmakers, dealbreakers
 
 
 def extractData(br, prefs):
