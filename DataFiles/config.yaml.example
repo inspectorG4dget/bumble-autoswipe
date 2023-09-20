@@ -80,3 +80,17 @@ smokingv2:
   rarely: null
   regularly: null
   socially: null
+
+starSignv2:
+  aries: null
+  taurus: null
+  gemini: null
+  cancer: null
+  leo: null
+  virgo: null
+  libra: null
+  scorpio: null
+  sagittarius: null
+  capricorn: null
+  aquarius: null
+  pisces: null
