@@ -86,6 +86,8 @@ def getSwipeDir(attributes, RULES, dealbreakers, dealmakers):
     if yes and not no: return 1
     if no and not yes: return -1
 
+    prompts = attributes.pop('prompts', None)  # to be handled later
+
     rules = []
     for a in attributes:
         if a not in RULES:
