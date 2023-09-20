@@ -76,4 +76,23 @@ def extractData(br, prefs):
         else:
             logging.critical(f'Attribute "{src}" not handled. Found value "{val}"')
 
+    bio = br.find_elements(By.CLASS_NAME, "encounters-story-about__text")[0].text
+    rawData['bio'] = bio
+    attrs['bio'] = bio
+
+    prompts = [e.text for e in br.find_elements(By.TAG_NAME, "h3")]
+    answers = [e.text for e in br.find_elements(By.CLASS_NAME, "header-2")]
+
+    prompts = dict(zip(prompts[::-1], answers[::-1]))  # the first couple of `answers` are profile information
+    rawData['prompts'] = attrs['prompts'] = prompts
+
+    age = br.find_elements(By.CLASS_NAME, "profile__age")
+    if age:
+        age = age[0].text
+        age = age.strip().strip(',').strip()
+        if age:
+            age = int(age)
+            rawData['age'] = age
+            attrs['age'] = age
+
     return attrs, rawData

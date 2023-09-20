@@ -2,95 +2,86 @@ dealbreakers:
 
 dealmakers:
 
+age:
+  18:
+  19:
+  20:
+  21:
+  22:
+  23:
+  24:
+  25:
+
 cannabisv2:
-  almost never: null
-  frequently: null
-  never: null
-  rarely: null
-  socially: null
+  never:
+  socially:
+  frequently:
 
 drinkingv2:
-  almost never: null
-  frequently: null
-  never: null
-  rarely: null
-  socially: null
+  never:
+  sober:
+  rarely:
+  socially:
+  frequently:
 
 educationv2:
-  graduate degree: null
-  high school: null
-  in college: null
-  in grad school: null
-  trade/tech school: null
-  undergraduate degree: null
+  high school:
+  trade/tech school:
+  in college:
+  undergraduate degree:
+  in grad school:
+  graduate degree:
 
 exercisev2:
-  active: null
-  almost never: null
-  never: null
-  sometimes: null
+  sometimes:
+  active:
+  almost never:
+  never:
 
 familyPlansv2:
-  "don�t want": null
-  "have and don�t want more": null
-  have and want more: null
-  have kids: null
-  not sure yet: null
-  open to kids: null
-  want someday: null
+  want someday:
+  don�t want:
+  have and want more:
+  have and don�t want more:
+  not sure yet:
+  have kids:
+  open to kids:
 
 genderv2:
-  cis woman: null
-  woman: null
-  woman and nonbinary: null
+  woman:
+  woman and nonbinary:
+  cis woman:
 
 heightv2:
-  bufferMax: null
-  max: null
-  min: null
+  min:
+  max:
+  bufferMax:
 
 intentionsv2:
-  "don�t know yet": null
-  marriage: null
-  relationship: null
-  something casual: null
+  relationship:
+  something casual:
+  don�t know yet:
+  marriage:
 
 Politicsv2:
-  apolitical: null
-  conservative: null
-  liberal: null
-  moderate: null
+  apolitical:
+  moderate:
+  liberal:
+  conservative:
 
 religionv2:
-  agnostic: null
-  atheist: null
-  buddhist: null
-  catholic: null
-  christian: null
-  hindu: null
-  jewish: null
-  muslim: null
-  other: null
-  spiritual: null
+  agnostic:
+  christian:
+  catholic:
+  hindu:
+  muslim:
+  jewish:
+  other:
+  spiritual:
+  atheist:
+  buddhist:
 
 smokingv2:
-  almost never: null
-  frequently: null
-  never: null
-  rarely: null
-  regularly: null
-  socially: null
-
-starSignv2:
-  aries: null
-  taurus: null
-  gemini: null
-  cancer: null
-  leo: null
-  virgo: null
-  libra: null
-  scorpio: null
-  sagittarius: null
-  capricorn: null
-  aquarius: null
-  pisces: null
+  socially:
+  never:
+  regularly:
