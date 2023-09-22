@@ -65,7 +65,14 @@ def extractData(br, prefs):
         rawData[src] = val
 
         if src == 'heightv2':
-            val = [int(h) if h else 0 for h in val.split("'")][:2]
+            try:
+                val = [int(h) if h else 0 for h in val.split("'")][:2]
+            except ValueError:
+                if val.startswith("<"):
+                    val = [3, 0]
+                else:
+                    val = [0, 0]
+
             val = 12*val[0] + val[1]
             attrs[src] = val
             continue

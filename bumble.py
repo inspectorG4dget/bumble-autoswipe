@@ -53,8 +53,10 @@ def main():
 
         if answer >= 0:
             answer = Keys.ARROW_RIGHT
+            numRight += 1
         else:
             answer = Keys.ARROW_LEFT
+            numLeft += 1
 
         actions = ActionChains(br)
         time.sleep(random.uniform(0,2))

@@ -96,6 +96,9 @@ def getSwipeDir(attributes, RULES, dealbreakers, dealmakers):
         Values >= 0 are swipe right
     """
 
+    prompts = attributes.pop('prompts', None)  # to be handled later
+    bio = attributes.pop('bio', None)  # to be handled later
+
     yes, no = 0, 0  # dealmakers and dealbreakers
     for a,v in attributes.items():
         yes += v >= dealmakers.get(a, math.inf)
@@ -103,8 +106,6 @@ def getSwipeDir(attributes, RULES, dealbreakers, dealmakers):
 
     if yes and not no: return 1
     if no and not yes: return -1
-
-    prompts = attributes.pop('prompts', None)  # to be handled later
 
     rules = []
     for a in attributes:
