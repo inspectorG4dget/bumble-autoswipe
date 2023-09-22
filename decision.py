@@ -38,6 +38,23 @@ def getRules(prefs):
                             consequent = swipe['left']
                             ),
                   ]
+    prefs.pop(key, None)
+
+    universe = np.arange(0,1,0.01)
+    key = 'throttle_ratio'
+    rule = ctrl.Antecedent(universe, key)
+    rule['low'] = fuzz.trimf(universe, (0, 0, prefs[key]))
+    rule['high'] = fuzz.trimf(universe, (prefs[key], 1, 1.5))
+    rule['perfect'] = fuzz.trimf(universe, (prefs[key]/2, prefs[key], min(1, prefs[key]*1.15)))
+
+    RULES[key] = [ctrl.Rule(antecedent = rule['high'],
+                            consequent = swipe['left'],
+                            ),
+                  ctrl.Rule(antecedent = rule['perfect'],
+                            consequent = swipe['right'],
+                            ),
+                  ]
+    prefs.pop(key, None)
 
     for k in prefs:
         universe = np.linspace(0, 1, 100)
@@ -64,7 +81,8 @@ def getSwipeDir(attributes, RULES, dealbreakers, dealmakers):
         dealbreaker and at least one dealmaker), then skip the immediate swipe and go on to the actual fuzzy system
 
     :param attributes: {trait: value, ...}
-        the preference value of each trait captured from Bumble's interface
+        The preference value of each trait captured from Bumble's interface
+        Other parameters may be added into this, such as the `throttle_ratio`
     :param RULES: {trait: [rule, rule, ...], ...}
         The set of all rules created from the preferences in config.yaml
     :param dealbreakers: {trait: maxValue, ...}

@@ -19,6 +19,7 @@ def main():
     :return:
     """
     prefs, dealmakers, dealbreakers = data.loadConfig(os.path.join('DataFiles', 'bumble.log'))
+    throttleRatio = prefs['throttle_ratio']
     rules = decision.getRules(prefs)
     br = webdriver.Firefox()
 
@@ -26,6 +27,9 @@ def main():
 
     input("Login and press ENTER to continue: ")
 
+    # number of left and right swipes
+    numLeft = 0
+    numRight = 0
     while True:
 
         if len(br.find_elements(By.CLASS_NAME, "cta-box__title")) > 0:
@@ -33,6 +37,16 @@ def main():
             break
 
         attrs, rawData = data.extractData(br, prefs)
+
+        totalSwipes = numLeft + numRight
+        try:
+            throttleRatio = numRight/totalSwipes
+        except ZeroDivisionError:
+            pass  # we've already gotten the ratio
+
+
+        attrs['throttle_ratio'] = rawData['throttle_ratio'] = throttleRatio
+
         answer = decision.getSwipeDir(attrs, rules, dealbreakers, dealmakers)
 
         logging.info(f"{json.dumps(rawData)} | {answer}")
