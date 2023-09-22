@@ -64,7 +64,8 @@ def getSwipeDir(attributes, RULES, dealbreakers, dealmakers):
         dealbreaker and at least one dealmaker), then skip the immediate swipe and go on to the actual fuzzy system
 
     :param attributes: {trait: value, ...}
-        the preference value of each trait captured from Bumble's interface
+        The preference value of each trait captured from Bumble's interface
+        Other parameters may be added into this, such as the `throttle_ratio`
     :param RULES: {trait: [rule, rule, ...], ...}
         The set of all rules created from the preferences in config.yaml
     :param dealbreakers: {trait: maxValue, ...}

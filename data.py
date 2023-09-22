@@ -23,7 +23,10 @@ def loadConfig(infilepath):
         dealmakers = {trait: minValue, ...}
         dealbreakers = {trait: maxValue, ...}
     """
-    logging.basicConfig(filename=infilepath, level=logging.INFO)
+    logging.basicConfig(format = '%(asctime)s | %(message)s',
+                        filename = infilepath,
+                        level = logging.INFO,
+                        )
 
     with open(os.path.join("DataFiles", 'config.yaml')) as infile:
         prefs = yaml.load(infile.read(), Loader=yaml.Loader)
@@ -85,7 +88,7 @@ def extractData(br, prefs):
     answers = [e.text for e in br.find_elements(By.CLASS_NAME, "header-2")]
 
     prompts = dict(zip(prompts[::-1], answers[::-1]))  # the first couple of `answers` are profile information
-    rawData['prompts'] = attrs['prompts'] = prompts
+    rawData['prompts'] = attrs['prompts'] = prompts  # To be reintroduced when we have prompt-handling logic
 
     age = br.find_elements(By.CLASS_NAME, "profile__age")
     if age:
