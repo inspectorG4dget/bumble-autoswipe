@@ -51,7 +51,7 @@ def main():
 
         logging.info(f"{json.dumps(rawData)} | {answer}")
 
-        if answer >= 0:
+        if answer >= 0.5:
             answer = Keys.ARROW_RIGHT
             numRight += 1
         else:

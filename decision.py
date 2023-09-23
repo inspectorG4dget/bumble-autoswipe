@@ -14,10 +14,10 @@ def getRules(prefs):
     :return: {trait: [rule, rule, ...], ...}
         all fuzzy rules key'd by traits in the preference
     """
-    universe = np.linspace(-1, 1, 50)
+    universe = np.linspace(0, 1, 50)
     swipe = ctrl.Consequent(universe, 'swipedir')
-    swipe['left'] = fuzz.trapmf(universe, (-1, -1, -0.5, 0))
-    swipe['right'] = fuzz.trapmf(universe, (0.5, 1, 1, 1))
+    swipe['left'] = fuzz.trapmf(universe, (0, 0, 0.25, 0.75))
+    swipe['right'] = fuzz.trapmf(universe, (0.25, 0.75, 1, 1))
 
     RULES = {}
 
@@ -105,7 +105,7 @@ def getSwipeDir(attributes, RULES, dealbreakers, dealmakers):
         no += v < dealbreakers.get(a, -math.inf)
 
     if yes and not no: return 1
-    if no and not yes: return -1
+    if no and not yes: return 0
 
     rules = []
     for a in attributes:
