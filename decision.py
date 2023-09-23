@@ -16,8 +16,8 @@ def getRules(prefs):
     """
     universe = np.linspace(0, 1, 50)
     swipe = ctrl.Consequent(universe, 'swipedir')
-    swipe['left'] = fuzz.trapmf(universe, (0, 0, 0.25, 0.75))
-    swipe['right'] = fuzz.trapmf(universe, (0.25, 0.75, 1, 1))
+    swipe['left'] = fuzz.gaussmf(universe, 0.25, 0.15)
+    swipe['right'] = fuzz.gaussmf(universe, 0.75, 0.15)
 
     RULES = {}
 
@@ -59,8 +59,8 @@ def getRules(prefs):
     for k in prefs:
         universe = np.linspace(0, 1, 100)
         rule = ctrl.Antecedent(universe, k)
-        rule['no'] = fuzz.trimf(universe, (0,0,1))
-        rule['yes'] = fuzz.trimf(universe, (0,1,1))
+        rule['no'] = fuzz.gaussmf(universe, 0.25, 0.15)
+        rule['yes'] = fuzz.gaussmf(universe, 0.75, 0.15)
 
         RULES[k] = [ctrl.Rule(antecedent = rule['no'],
                               consequent = swipe['left'],
