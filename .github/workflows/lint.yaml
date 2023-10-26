@@ -1,0 +1,35 @@
+name: Lint
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types: [opened, reopened]
+  workflow_dispatch:  # allows manual triggering
+
+jobs:
+  run-linters:
+    timeout-minutes: 2
+    name: Run linters
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+
+      - name: Upgrade pip
+        run: pip install -U pip
+
+      - name: Install Python dependencies
+        run: pip install flake8 flake8-print flake8-multiline-function-call-equals pydoclint && pip freeze
+
+      - name: Run linters
+        run: python -m flake8 --max-line-length 130 --ignore=E123,E126,E226,E251,W291,F541,DOC203,DOC301 --arg-type-hints-in-signature=False
+
+# see https://pycodestyle.pycqa.org/en/latest/intro.html#error-codes for list of error codes
