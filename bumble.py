@@ -46,14 +46,20 @@ def main():
 
 
         attrs['throttle_ratio'] = rawData['throttle_ratio'] = throttleRatio
+        print(f"{throttleRatio = }")  ##
 
         answer = decision.getSwipeDir(attrs, rules, dealbreakers, dealmakers)
 
         logging.info(f"{json.dumps(rawData)} | {answer}")
 
         if answer >= 0.5:
-            answer = Keys.ARROW_RIGHT
-            numRight += 1
+            r = random.random()
+            if r <= 1 - (throttleRatio - prefs['throttle_ratio']):
+                answer = Keys.ARROW_RIGHT
+                numRight += 1
+            else:
+                answer = Keys.ARROW_LEFT
+                numLeft += 1
         else:
             answer = Keys.ARROW_LEFT
             numLeft += 1
