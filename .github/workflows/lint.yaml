@@ -30,6 +30,6 @@ jobs:
         run: pip install flake8 flake8-print flake8-multiline-function-call-equals pydoclint && pip freeze
 
       - name: Run linters
-        run: python -m flake8 --max-line-length 130 --ignore=E123,E126,E226,E251,W291,F541,DOC203,DOC301 --arg-type-hints-in-signature=False
+        run: python -m flake8 --max-line-length 130 --ignore=E123,E126,E226,E251,E701,W291,F541,DOC203,DOC301 --arg-type-hints-in-signature=False
 
 # see https://pycodestyle.pycqa.org/en/latest/intro.html#error-codes for list of error codes

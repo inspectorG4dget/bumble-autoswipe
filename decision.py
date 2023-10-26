@@ -56,6 +56,7 @@ def getRules(prefs):
 
     return RULES
 
+
 def getSwipeDir(attributes, RULES, dealbreakers, dealmakers):
     """
     Create a fuzzy system and get the output, based on the input data available.
@@ -80,11 +81,11 @@ def getSwipeDir(attributes, RULES, dealbreakers, dealmakers):
         Values >= 0 are swipe right
     """
 
-    prompts = attributes.pop('prompts', None)  # to be handled later
-    bio = attributes.pop('bio', None)  # to be handled later
+    prompts = attributes.pop('prompts', None)  # to be handled later  # noqa F841
+    bio = attributes.pop('bio', None)  # to be handled later  # noqa F841
 
     yes, no = 0, 0  # dealmakers and dealbreakers
-    for a,v in attributes.items():
+    for a,v in attributes.items():  # noqa E231
         yes += v >= dealmakers.get(a, math.inf)
         no += v < dealbreakers.get(a, -math.inf)
 
@@ -101,7 +102,7 @@ def getSwipeDir(attributes, RULES, dealbreakers, dealmakers):
 
     system = ctrl.ControlSystem(rules=rules)
     sim = ctrl.ControlSystemSimulation(system)
-    for a,v in attributes.items():
+    for a,v in attributes.items():  # noqa E231
         if a not in RULES: continue
         sim.input[a] = v
 

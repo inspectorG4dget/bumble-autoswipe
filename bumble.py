@@ -33,7 +33,7 @@ def main():
     while True:
 
         if len(br.find_elements(By.CLASS_NAME, "cta-box__title")) > 0:
-            print('Out of swipes for today')  ##
+            print('Out of swipes for today')  # noqa T201
             break
 
         attrs, rawData = data.extractData(br, prefs)
@@ -44,9 +44,7 @@ def main():
         except ZeroDivisionError:
             pass  # we've already gotten the ratio
 
-
         attrs['throttle_ratio'] = rawData['throttle_ratio'] = throttleRatio
-        print(f"{throttleRatio = }")  ##
 
         answer = decision.getSwipeDir(attrs, rules, dealbreakers, dealmakers)
 
@@ -65,7 +63,7 @@ def main():
             numLeft += 1
 
         actions = ActionChains(br)
-        time.sleep(random.uniform(0,2))
+        time.sleep(random.uniform(0, 2))
         actions.send_keys(answer)
         actions.perform()
 
@@ -79,8 +77,8 @@ def main():
 
 
 if __name__ == "__main__":
-    print('starting')
+    print('starting')  # noqa T201
 
     main()
 
-    print('done')
+    print('done')  # noqa T201
