@@ -71,6 +71,10 @@ def main():
 
         time.sleep(2)  # let the next profile load
 
+        if len(br.find_elements(By.CLASS_NAME, "encounters-match__header")) > 0:  # there was a match
+            b = br.find_elements(By.CLASS_NAME, "encounters-match__cta-action")[1]
+            b.click()
+
     br.quit()
 
 
